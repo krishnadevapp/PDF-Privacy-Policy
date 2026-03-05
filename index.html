@@ -17,6 +17,8 @@
             --success-text: #15803d;
             --warning-bg: #fffbeb;
             --warning-text: #b45309;
+            --info-bg: #eff6ff;
+            --info-text: #1d4ed8;
         }
 
         * {
@@ -140,6 +142,42 @@
             font-size: 1.2em;
         }
 
+        .info-highlight {
+            background: var(--info-bg);
+            border: 1px solid #bfdbfe;
+            color: var(--info-text);
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .info-highlight::before {
+            content: "ℹ️";
+            font-size: 1.2em;
+        }
+
+        .warning-highlight {
+            background: var(--warning-bg);
+            border: 1px solid #fde68a;
+            color: var(--warning-text);
+            padding: 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .warning-highlight::before {
+            content: "⚠️";
+            font-size: 1.2em;
+        }
+
         .permission-item {
             display: flex;
             flex-direction: column;
@@ -175,6 +213,12 @@
             border-color: #fecaca;
         }
 
+        .tag.ads {
+            background: #fef3c7;
+            color: #92400e;
+            border-color: #fde68a;
+        }
+
         .footer {
             text-align: center;
             padding-top: 40px;
@@ -191,6 +235,26 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 0.95rem;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 12px 16px;
+            border: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--bg);
+            font-weight: 600;
+            color: var(--primary);
         }
 
         @media (max-width: 600px) {
@@ -219,7 +283,9 @@
                 gap: 8px;
             }
 
-            .privacy-highlight {
+            .privacy-highlight,
+            .info-highlight,
+            .warning-highlight {
                 flex-direction: column;
                 padding: 14px;
                 font-size: 0.9rem;
@@ -239,6 +305,15 @@
                 padding-top: 24px;
                 font-size: 0.8rem;
             }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th,
+            td {
+                padding: 8px 10px;
+            }
         }
     </style>
 </head>
@@ -248,55 +323,143 @@
     <div class="container">
         <header>
             <h1>Privacy Policy</h1>
-            <div class="last-updated">Last Revised: January 27, 2026</div>
+            <div class="last-updated">Last Revised: March 5, 2026</div>
         </header>
 
         <div class="content">
 
+            <!-- SECTION 1: Introduction -->
             <section>
                 <h2>1. Introduction</h2>
                 <p>
-                    <strong>DevPDF - PDF Scanner & Editor</strong> ("we," "our," or "the App") is committed to protecting
-                    your
-                    privacy. This policy explains how our application handles your data and outlines your rights.
+                    <strong>DevPDF - PDF Scanner & Editor</strong> ("we," "us," "our," or "the App") is committed to
+                    protecting your privacy. This Privacy Policy explains how our application collects, uses, discloses,
+                    and safeguards your information when you use our mobile application. Please read this policy
+                    carefully. By downloading, accessing, or using DevPDF, you agree to the collection and use of
+                    information in accordance with this policy.
                 </p>
                 <p>
                     The core philosophy of our App is <strong>Privacy by Design</strong>. We are a utility application
-                    that processes your documents directly on your device.
+                    that processes your documents directly on your device. Your PDFs, images, and scanned documents are
+                    <strong>never uploaded to any external server</strong>.
                 </p>
 
                 <div class="privacy-highlight">
-                    <strong>Zero Data Collection Policy:</strong> We do not collect, upload, process, or store your
-                    personal documents, PDF files, or images on any external server. All document processing happens
-                    offline on your own device. We do not display advertisements or use any advertising SDKs.
+                    <strong>Local Processing Guarantee:</strong> All document processing — including editing, merging,
+                    splitting, scanning, OCR, watermarking, and converting — happens entirely offline on your own
+                    device.
+                    We never access, read, upload, or store the content of your documents.
                 </div>
             </section>
 
+            <!-- SECTION 2: Information Collection -->
             <section>
-                <h2>2. Information Collection</h2>
+                <h2>2. Information We Collect</h2>
                 <div class="card">
                     <h3>A. Personal Data</h3>
-                    <p>We do <strong>not</strong> collect personally identifiable information (PII) such as:</p>
+                    <p>We do <strong>not</strong> directly collect personally identifiable information (PII) such as:
+                    </p>
                     <ul>
                         <li>Names, email addresses, or phone numbers.</li>
                         <li>Account credentials or login information.</li>
                         <li>Location data (GPS or IP-based).</li>
+                        <li>The content of your PDF files, images, or scanned documents.</li>
                     </ul>
 
                     <h3>B. Usage Data & Analytics</h3>
                     <p>We do <strong>not</strong> track your usage behavior, screen views, or interaction history within
-                        the App. We do not use any third-party analytics services like Google Analytics or Firebase
+                        the App. We do not use any first-party analytics services like Google Analytics or Firebase
                         Analytics.</p>
 
-                    <h3>C. Advertisements</h3>
-                    <p>Our App is <strong>completely ad-free</strong>. We do not integrate any advertising SDKs (such as
-                        AdMob, Facebook Ads, or any other advertising network). Your experience is never interrupted by
-                        advertisements, and no data is shared with advertising networks.</p>
+                    <h3>C. Information Collected by Third-Party Advertising</h3>
+                    <p>Our App displays advertisements through <strong>Google AdMob</strong>, a third-party advertising
+                        service provided by Google LLC. When ads are displayed, Google AdMob may automatically collect
+                        certain information, including:</p>
+                    <ul>
+                        <li><strong>Device Information:</strong> Device type, model, operating system version, unique
+                            device identifiers (such as the Android Advertising ID), screen size, and language
+                            settings.</li>
+                        <li><strong>Network Information:</strong> IP address, mobile carrier, and network connection
+                            type.
+                        </li>
+                        <li><strong>Ad Interaction Data:</strong> Information about ads shown to you and your
+                            interaction
+                            with them (impressions, clicks, and ad performance metrics).</li>
+                    </ul>
+
+                    <div class="info-highlight">
+                        <strong>Important:</strong> The data collected by Google AdMob is governed by Google's own
+                        privacy policies. We do not control this data collection and do not have access to the personal
+                        data Google collects through its advertising services.
+                    </div>
+
+                    <p>For more information on how Google uses your data, please review:</p>
+                    <ul>
+                        <li><a href="https://policies.google.com/privacy" target="_blank">Google Privacy
+                                Policy</a></li>
+                        <li><a href="https://policies.google.com/technologies/ads" target="_blank">How Google Uses
+                                Information from Sites or Apps That Use Our Services</a></li>
+                        <li><a href="https://support.google.com/admob/answer/6128543" target="_blank">Google AdMob &
+                                AdSense Data Collection</a></li>
+                    </ul>
                 </div>
             </section>
 
+            <!-- SECTION 3: How We Use Information -->
             <section>
-                <h2>3. Permissions & Device Access</h2>
+                <h2>3. How We Use Information</h2>
+                <p>The limited information that is processed in connection with our App is used solely for the following
+                    purposes:</p>
+                <ul>
+                    <li><strong>Providing Core Functionality:</strong> Processing your documents on-device to deliver
+                        the
+                        PDF tools you use (edit, merge, split, scan, OCR, convert, etc.).</li>
+                    <li><strong>Displaying Advertisements:</strong> Serving non-intrusive interstitial ads between tool
+                        operations through Google AdMob to support free access to the App.</li>
+                    <li><strong>App Improvement:</strong> If we receive crash reports through the Google Play Console
+                        (opt-in at device level by the user), we use anonymized crash data to fix bugs.</li>
+                </ul>
+                <p>We do <strong>not</strong> sell, rent, lease, or trade your personal information to any third party
+                    for marketing or commercial purposes.</p>
+            </section>
+
+            <!-- SECTION 4: Advertising -->
+            <section>
+                <h2>4. Advertising</h2>
+                <p>Our App uses <strong>Google AdMob</strong> to display interstitial advertisements. These ads are
+                    shown after certain tool operations are completed (e.g., after merging, converting, or editing a
+                    PDF), before the success result screen. Ads are designed to be non-blocking — you can always dismiss
+                    or close them.</p>
+
+                <h3>How Ads Work in Our App</h3>
+                <ul>
+                    <li>Ads appear <strong>only after a tool operation completes</strong>, never during your workflow.
+                    </li>
+                    <li>If an ad fails to load (e.g., due to poor network), the App proceeds normally without any
+                        interruption.</li>
+                    <li>Static image ads can be dismissed immediately; video ads can be skipped after a maximum of 5
+                        seconds (controlled by Google's policies).</li>
+                </ul>
+
+                <h3>Advertising Identifiers</h3>
+                <p>Google AdMob uses the <strong>Android Advertising ID (AAID)</strong> — a user-resettable identifier
+                    provided by the Android operating system — to serve relevant ads. You can reset or opt out of
+                    personalized advertising at any time:</p>
+                <ul>
+                    <li>Go to your device <strong>Settings → Google → Ads</strong></li>
+                    <li>Toggle <strong>"Opt out of Ads Personalization"</strong> (or "Delete advertising ID" on Android
+                        13+)</li>
+                </ul>
+
+                <div class="info-highlight">
+                    <strong>Your Control:</strong> If you opt out of personalized ads, you will still see ads, but they
+                    will be generic (non-targeted) and not based on your interests or behavior.
+                </div>
+            </section>
+
+            <!-- SECTION 5: Permissions -->
+            <section>
+                <h2>5. Permissions & Device Access</h2>
                 <p>To function as a comprehensive PDF toolkit, the App requires specific system permissions. We request
                     only what is strictly necessary for each feature.</p>
 
@@ -320,7 +483,7 @@
                         <span>Storage Access</span>
                         <span class="tag">WRITE_EXTERNAL_STORAGE</span>
                     </div>
-                    <p><strong>Why we need it:</strong> Required on devices running Android 9 (API 29) and below to read
+                    <p><strong>Why we need it:</strong> Required on devices running Android 9 (API 28) and below to read
                         and save PDF files to your device storage.</p>
                     <p><strong>What we do with it:</strong></p>
                     <ul>
@@ -334,15 +497,14 @@
                         <span>Internet Access</span>
                         <span class="tag">INTERNET</span>
                     </div>
-                    <p><strong>Why we need it:</strong> Required by the Google ML Kit Document Scanner library for
-                        initial model download. This is a one-time download when you first use the scan feature.</p>
-                    <p><strong>What we do with it:</strong></p>
+                    <p><strong>Why we need it:</strong> Required for two purposes:</p>
                     <ul>
-                        <li>Download on-device machine learning models for document edge detection (via Google ML Kit).
-                        </li>
-                        <li>We do <strong>not</strong> upload any of your documents, images, or personal data to the
-                            internet.</li>
+                        <li><strong>Google ML Kit:</strong> One-time download of on-device machine learning models for
+                            the document scanning feature.</li>
+                        <li><strong>Google AdMob:</strong> Loading and displaying advertisements within the App.</li>
                     </ul>
+                    <p>We do <strong>not</strong> upload any of your documents, images, or personal data over the
+                        internet.</p>
                 </div>
 
                 <div class="permission-item">
@@ -355,14 +517,25 @@
                     <p><strong>What we do with it:</strong></p>
                     <ul>
                         <li>Access images you specifically select to convert into PDF documents.</li>
-                        <li>We only access the images you choose – we do not scan or access your entire gallery.</li>
+                        <li>We only access the images you choose — we do not scan or access your entire gallery.</li>
                         <li>Selected images are processed entirely on-device and are never uploaded anywhere.</li>
                     </ul>
                 </div>
+
+                <div class="permission-item">
+                    <div class="permission-header">
+                        <span>Network State</span>
+                        <span class="tag">ACCESS_NETWORK_STATE</span>
+                    </div>
+                    <p><strong>Why we need it:</strong> Used by the Google AdMob SDK to detect network availability
+                        before attempting to load advertisements. This permission does not grant access to any personal
+                        data.</p>
+                </div>
             </section>
 
+            <!-- SECTION 6: Permissions NOT Requested -->
             <section>
-                <h2>4. Permissions We Do NOT Request</h2>
+                <h2>6. Permissions We Do NOT Request</h2>
                 <p>To ensure maximum privacy, our App explicitly avoids requesting sensitive permissions that are not
                     critical to PDF management:</p>
                 <ul>
@@ -370,70 +543,312 @@
                     <li>❌ <strong>No Contacts Access:</strong> We do not read your address book.</li>
                     <li>❌ <strong>No Location Access:</strong> We do not track your physical location.</li>
                     <li>❌ <strong>No Phone State Access:</strong> We do not access your call logs or phone number.</li>
+                    <li>❌ <strong>No Background Data Access:</strong> We do not access or process data when the App is
+                        closed.</li>
                 </ul>
             </section>
 
+            <!-- SECTION 7: Third-Party Libraries -->
             <section>
-                <h2>5. Third-Party Libraries & Services</h2>
-                <p>We utilize industry-standard open-source libraries to power our features. These libraries run locally
-                    within the App environment:</p>
+                <h2>7. Third-Party Libraries & Services</h2>
+                <p>We utilize the following libraries and services. On-device libraries do not transmit any data.
+                    Network
+                    services are clearly marked.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Library / Service</th>
+                            <th>Purpose</th>
+                            <th>Network</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>PDFBox-Android</strong></td>
+                            <td>PDF generation, modification, merging, splitting, watermarking, OCR text overlay</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>AndroidPdfViewer</strong></td>
+                            <td>Rendering and displaying PDF documents</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Glide</strong></td>
+                            <td>Efficient image loading and caching within the app</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>uCrop</strong></td>
+                            <td>Image cropping before conversion to PDF</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ZXing</strong></td>
+                            <td>QR code generation</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>OpenCV</strong></td>
+                            <td>Signature processing and image enhancement</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CameraX</strong></td>
+                            <td>Camera functionality for document scanning</td>
+                            <td>❌ Offline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google ML Kit</strong></td>
+                            <td>Document scanning, OCR text recognition</td>
+                            <td>✅ Initial model download only; all processing is on-device</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Google AdMob</strong></td>
+                            <td>Displaying interstitial advertisements</td>
+                            <td>✅ Requires network to load ads</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Google ML Kit</h3>
+                <p>We use Google's ML Kit for document scanning and text recognition (OCR). This service downloads
+                    machine learning models to your device and processes all documents <strong>on-device</strong> — your
+                    documents are never sent to Google's servers for processing. See <a
+                        href="https://developers.google.com/ml-kit/vision/doc-scanner" target="_blank">Google ML Kit
+                        Documentation</a>.</p>
+
+                <h3>Google AdMob</h3>
+                <p>We use Google AdMob to serve interstitial advertisements. Google AdMob is operated by Google LLC and
+                    may collect data as described in Section 2C and Section 4 of this policy. See <a
+                        href="https://support.google.com/admob/answer/6128543" target="_blank">Google AdMob Data
+                        Disclosure</a>.</p>
+            </section>
+
+            <!-- SECTION 8: Data Security -->
+            <section>
+                <h2>8. Data Security</h2>
+                <p>We take the security of your data seriously. Since we do not transmit your personal documents or
+                    files to any server, your documents are as secure as your device itself.</p>
                 <ul>
-                    <li><strong>PDFBox-Android:</strong> Apache-licensed library for PDF generation, modification,
-                        merging, splitting, and watermarking. Runs entirely offline.</li>
-                    <li><strong>AndroidPdfViewer:</strong> For rendering and displaying PDF documents within the app.
+                    <li>All PDF processing occurs locally in sandboxed memory and temporary files that are automatically
+                        cleaned up after each operation.</li>
+                    <li>There is no "backend database" or "user accounts" for this App that can be breached, as we do
+                        not maintain any.</li>
+                    <li>We recommend keeping your device OS updated and using device-level security (PIN, pattern, or
+                        biometrics) to protect your local data.</li>
+                </ul>
+                <p>For data processed by Google through AdMob, Google employs industry-standard security measures as
+                    described in the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy
+                        Policy</a>.</p>
+            </section>
+
+            <!-- SECTION 9: Data Retention -->
+            <section>
+                <h2>9. Data Retention</h2>
+                <p>Since we do not collect or store your personal data on any server, there is no data retention period
+                    applicable from our side. Specifically:</p>
+                <ul>
+                    <li><strong>Documents & Files:</strong> All files remain on your device under your control. We do
+                        not
+                        retain copies of any documents you process.</li>
+                    <li><strong>Temporary Files:</strong> Temporary files created during PDF operations are
+                        automatically
+                        deleted after each operation or when the App is restarted.</li>
+                    <li><strong>Ad-Related Data:</strong> Any data collected by Google AdMob is retained according to
+                        Google's data retention policies. Please refer to <a
+                            href="https://policies.google.com/technologies/retention" target="_blank">Google's Data
+                            Retention Policy</a>.</li>
+                </ul>
+            </section>
+
+            <!-- SECTION 10: GDPR -->
+            <section>
+                <h2>10. Your Rights Under GDPR (European Economic Area)</h2>
+                <p>If you are a resident of the European Economic Area (EEA), you are afforded certain rights under the
+                    <strong>General Data Protection Regulation (GDPR)</strong>. Even though our App does not directly
+                    collect personal data, our use of Google AdMob means that Google, as a data processor, may process
+                    certain data as described in Section 2C.
+                </p>
+
+                <h3>Legal Basis for Processing</h3>
+                <p>The legal basis for any data processing conducted by Google AdMob in connection with our App is:</p>
+                <ul>
+                    <li><strong>Consent:</strong> Where required, Google AdMob will present a consent dialog (via the
+                        Google User Messaging Platform) before collecting data for personalized advertising.</li>
+                    <li><strong>Legitimate Interest:</strong> For non-personalized ads that do not require personal data
+                        profiling.</li>
+                </ul>
+
+                <h3>Your GDPR Rights</h3>
+                <p>Under the GDPR, you have the following rights:</p>
+                <ul>
+                    <li><strong>Right of Access:</strong> You have the right to request information about the data
+                        processed in relation to your use of the App.</li>
+                    <li><strong>Right to Rectification:</strong> You have the right to request correction of inaccurate
+                        personal data.</li>
+                    <li><strong>Right to Erasure ("Right to be Forgotten"):</strong> You may request deletion of
+                        personal
+                        data. Since we do not store personal data, this right primarily applies to data held by Google.
+                        You can manage Google's data about you at <a href="https://myaccount.google.com/privacy"
+                            target="_blank">Google Privacy Dashboard</a>.</li>
+                    <li><strong>Right to Restrict Processing:</strong> You may request restriction of processing of your
+                        personal data.</li>
+                    <li><strong>Right to Data Portability:</strong> You have the right to receive your personal data in
+                        a
+                        structured, commonly used, and machine-readable format.</li>
+                    <li><strong>Right to Object:</strong> You may object to the processing of your personal data,
+                        including opting out of personalized advertising.</li>
+                    <li><strong>Right to Withdraw Consent:</strong> Where processing is based on consent, you may
+                        withdraw it at any time without affecting the lawfulness of processing based on consent before
+                        its withdrawal.</li>
+                </ul>
+
+                <h3>How to Exercise Your Rights</h3>
+                <ul>
+                    <li><strong>Opt out of personalized ads:</strong> Go to Settings → Google → Ads → "Opt out of Ads
+                        Personalization" on your device.</li>
+                    <li><strong>Reset Advertising ID:</strong> Go to Settings → Google → Ads → "Reset advertising ID".
                     </li>
-                    <li><strong>Glide:</strong> For efficient image loading and caching within the app.</li>
-                    <li><strong>uCrop:</strong> For image cropping functionality before conversion to PDF.</li>
-                    <li><strong>ZXing:</strong> For QR code generation feature. Runs entirely offline.</li>
-                    <li><strong>CameraX:</strong> Android Jetpack library for camera functionality in the scanning
-                        feature.</li>
+                    <li><strong>Delete Advertising ID:</strong> On Android 13+, go to Settings → Google → Ads → "Delete
+                        advertising ID".</li>
+                    <li><strong>Manage Google data:</strong> Visit <a href="https://myaccount.google.com"
+                            target="_blank">Google My Account</a> to review and manage data that Google has collected.
+                    </li>
+                    <li><strong>Contact us:</strong> For any GDPR-related requests, please email us at <a
+                            href="mailto:contact.krishna.apps@gmail.com">contact.krishna.apps@gmail.com</a>.</li>
                 </ul>
 
-                <h3>Google ML Kit Document Scanner</h3>
-                <p>We use Google's ML Kit Document Scanner for enhanced document scanning. This service:</p>
+                <div class="info-highlight">
+                    <strong>Data Protection Officer:</strong> Given the minimal scope of data processing in our App, we
+                    have not appointed a dedicated Data Protection Officer. For all privacy-related inquiries, please
+                    contact us at <a href="mailto:contact.krishna.apps@gmail.com">contact.krishna.apps@gmail.com</a>.
+                </div>
+            </section>
+
+            <!-- SECTION 11: CCPA -->
+            <section>
+                <h2>11. Your Rights Under CCPA (California Residents)</h2>
+                <p>If you are a California resident, the <strong>California Consumer Privacy Act (CCPA)</strong> and the
+                    <strong>California Privacy Rights Act (CPRA)</strong> grant you specific rights regarding your
+                    personal information.
+                </p>
+
+                <h3>Your CCPA/CPRA Rights</h3>
                 <ul>
-                    <li>Downloads machine learning models to your device (requires Internet permission for initial
-                        download).</li>
-                    <li>Processes all document scanning <strong>on-device</strong> – your documents are never sent to
-                        Google's servers for processing.</li>
-                    <li>For more details, see <a href="https://developers.google.com/ml-kit/vision/doc-scanner"
-                            target="_blank">Google ML Kit Documentation</a>.</li>
+                    <li><strong>Right to Know:</strong> You have the right to know what personal information is being
+                        collected about you and how it is used. We disclose this in Section 2 and Section 4 of this
+                        policy.</li>
+                    <li><strong>Right to Delete:</strong> You have the right to request deletion of personal
+                        information.
+                        Since we do not directly collect personal information, this right applies to data held by Google
+                        AdMob.</li>
+                    <li><strong>Right to Opt-Out of Sale/Sharing:</strong> We do <strong>not sell</strong> your personal
+                        information. The data collected by Google AdMob for ad serving does not constitute a "sale"
+                        under
+                        CCPA, but if you wish to opt out of personalized ads, follow the steps in Section 4.</li>
+                    <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for
+                        exercising
+                        any of your CCPA rights.</li>
+                    <li><strong>Right to Correct:</strong> You have the right to request correction of inaccurate
+                        personal information.</li>
+                    <li><strong>Right to Limit Use of Sensitive Information:</strong> We do not collect or process
+                        sensitive personal information as defined by the CCPA.</li>
                 </ul>
+
+                <h3>"Do Not Sell or Share My Personal Information"</h3>
+                <p>We do <strong>not sell</strong> your personal information as defined by the CCPA/CPRA. The
+                    information
+                    processed by Google AdMob for advertising purposes is handled under Google's terms and is not
+                    considered a "sale" by our App. However, you may opt out of personalized advertising at any time
+                    through your device settings as described in Section 4.</p>
+
+                <p>To exercise any CCPA/CPRA rights, please contact us at <a
+                        href="mailto:contact.krishna.apps@gmail.com">contact.krishna.apps@gmail.com</a>.</p>
             </section>
 
+            <!-- SECTION 12: International Data Protection -->
             <section>
-                <h2>6. Data Security</h2>
-                <p>Since we do not transmit your personal data or documents to the internet, your documents are as
-                    secure as your device itself. We recommend keeping your device OS updated and using device-level
-                    security (PIN/Biometrics) to protect your local data.</p>
-                <p>There is no "backend database" or "user accounts" for this App that can be breached, as we do not
-                    maintain any.</p>
+                <h2>12. International Data Protection Laws</h2>
+                <p>In addition to GDPR and CCPA, we are committed to compliance with data protection laws in other
+                    jurisdictions:</p>
+
+                <h3>Brazil — LGPD (Lei Geral de Proteção de Dados)</h3>
+                <p>If you are a resident of Brazil, you have rights similar to GDPR regarding your personal data,
+                    including the right to access, correction, deletion, and data portability. For requests under LGPD,
+                    contact us at the email address in Section 15.</p>
+
+                <h3>United Kingdom — UK GDPR</h3>
+                <p>Post-Brexit, the UK has adopted its own version of GDPR. UK residents have equivalent rights as
+                    described in Section 10 (GDPR). The same mechanisms for exercising your rights apply.</p>
+
+                <h3>Canada — PIPEDA</h3>
+                <p>Canadian users have the right to access their personal information, request corrections, and withdraw
+                    consent. Since we do not directly collect personal data, these rights apply to data processed by
+                    Google. Contact us for assistance.</p>
+
+                <h3>India — DPDP Act (Digital Personal Data Protection Act, 2023)</h3>
+                <p>If you are a resident of India, you have rights under the DPDP Act including the right to access,
+                    correction, erasure, and grievance redressal. For any requests, contact us at the email in Section
+                    15.</p>
+
+                <h3>Australia — Privacy Act 1988</h3>
+                <p>Australian users have the right to access their personal information and request corrections under
+                    the
+                    Australian Privacy Principles (APPs). Contact us for assistance with any privacy-related requests.
+                </p>
             </section>
 
+            <!-- SECTION 13: Children's Privacy -->
             <section>
-                <h2>7. Children's Privacy (COPPA Compliance)</h2>
-                <p>This section is included as a standard legal requirement for all mobile applications. Our App is a
-                    general-purpose productivity tool designed for all users. We do not knowingly collect any personal
-                    information from anyone, including children under 13 years of age. Since this App does not collect,
-                    store, or transmit any personal data whatsoever, compliance with the Children's Online Privacy
-                    Protection Act (COPPA) is inherently satisfied.</p>
+                <h2>13. Children's Privacy (COPPA & International Compliance)</h2>
+                <p>Our App is a general-purpose productivity tool designed for all users. We take children's privacy
+                    seriously and comply with:</p>
+                <ul>
+                    <li><strong>COPPA (USA):</strong> Children's Online Privacy Protection Act — We do not knowingly
+                        collect personal information from children under 13.</li>
+                    <li><strong>GDPR-K (EU):</strong> Under GDPR, processing of personal data of children below 16 (or
+                        the applicable national threshold) requires parental consent.</li>
+                    <li><strong>Age-Appropriate Design Code (UK):</strong> We follow best practices for
+                        privacy-protective design.</li>
+                </ul>
+                <p>Since this App does not directly collect, store, or transmit personal data, compliance with
+                    children's
+                    privacy laws is inherently satisfied for our direct operations. Google AdMob is configured to comply
+                    with applicable children's privacy regulations. If you believe that a child under 13 has provided
+                    personal information through the ad service, please contact us immediately.</p>
             </section>
 
+            <!-- SECTION 14: Changes to Policy -->
             <section>
-                <h2>8. Changes to This Policy</h2>
-                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the
-                    new Privacy Policy on this page and updating the "Last Revised" date. You are advised to review this
-                    Privacy Policy periodically for any changes.</p>
+                <h2>14. Changes to This Policy</h2>
+                <p>We may update our Privacy Policy from time to time. When we make material changes, we will:</p>
+                <ul>
+                    <li>Post the updated Privacy Policy on this page.</li>
+                    <li>Update the "Last Revised" date at the top of this policy.</li>
+                    <li>For significant changes, we may notify users through an in-app notice or the app store listing.
+                    </li>
+                </ul>
+                <p>Your continued use of the App after modifications constitutes your acceptance of the updated policy.
+                    We encourage you to review this Privacy Policy periodically.</p>
             </section>
 
+            <!-- SECTION 15: Contact Us -->
             <section>
-                <h2>9. Contact Us</h2>
-                <p>If you have any questions, concerns, or suggestions regarding this Privacy Policy, please contact the
-                    developer:</p>
+                <h2>15. Contact Us</h2>
+                <p>If you have any questions, concerns, complaints, or requests regarding this Privacy Policy or our
+                    data practices, please contact the developer:</p>
                 <p>
                     <strong>Email:</strong> <a
                         href="mailto:contact.krishna.apps@gmail.com">contact.krishna.apps@gmail.com</a>
                 </p>
+                <p>
+                    <strong>Developer:</strong> KrishnaDev Apps
+                </p>
+                <p>We aim to respond to all privacy-related inquiries within <strong>30 business days</strong>.</p>
+                <p>If you are not satisfied with our response, you may have the right to lodge a complaint with your
+                    local data protection authority.</p>
             </section>
 
             <div class="footer">
